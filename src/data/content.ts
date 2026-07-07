@@ -4,9 +4,9 @@ export const company = {
   description:
     'Soluciones logísticas integrales con cobertura internacional. Transporte terrestre, marítimo, aéreo, aduanas, almacenaje y distribución.',
   email: 'info@chandramalogistic.com',
-  phone: '+51 999 888 777',
-  phone2: '+51 999 888 778',
-  whatsapp: '51999888777',
+  phone: '+591 73841431',
+  phone2: '+591 71461707',
+  whatsapp: '59173841431',
   whatsappMessage:
     'Hola, me interesa solicitar información sobre sus servicios logísticos.',
   address: 'Av. Logística 1234, Lima, Perú',

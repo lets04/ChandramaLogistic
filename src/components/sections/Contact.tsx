@@ -157,7 +157,7 @@ export function Contact() {
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="w-full rounded-lg border border-card-border bg-surface px-4 py-3.5 text-base outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20"
-                    placeholder="+51 999 888 777"
+                    placeholder="+591 73841431"
                   />
                 </div>
               </div>

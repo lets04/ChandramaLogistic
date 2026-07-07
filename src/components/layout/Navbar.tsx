@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { ChevronRight, Menu, X } from 'lucide-react'
 import { navLinks } from '../../data/content'
 import { Logo } from '../ui/Logo'
 
@@ -14,10 +14,14 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
+    if (!isOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false)
     }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isOpen])
 
   const handleNavClick = () => setIsOpen(false)
@@ -30,7 +34,7 @@ export function Navbar() {
         }`}
         style={{ backgroundColor: 'rgba(10, 46, 99, 0.95)' }}
       >
-        <nav className="container-page flex items-center justify-between py-3 sm:py-4">
+        <nav className="container-page flex items-center justify-between py-2.5 sm:py-4">
           <Logo />
 
           <ul className="hidden items-center gap-6 lg:flex lg:gap-8">
@@ -56,10 +60,13 @@ export function Navbar() {
 
           <button
             type="button"
-            className="touch-target flex items-center justify-center rounded-lg p-2 text-white lg:hidden"
+            className={`touch-target flex items-center justify-center rounded-lg border border-white/15 p-2 text-white transition-colors lg:hidden ${
+              isOpen ? 'bg-white/15' : 'bg-white/5 active:bg-white/15'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -67,33 +74,48 @@ export function Navbar() {
       </header>
 
       {isOpen && (
-        <div
-          className="safe-top fixed inset-0 z-40 flex flex-col bg-primary/98 backdrop-blur-sm lg:hidden"
-          style={{ paddingTop: 'calc(3.75rem + env(safe-area-inset-top, 0px))' }}
-        >
-          <nav className="flex flex-1 flex-col px-4 pb-8">
-            <ul className="flex flex-col gap-1">
+        <>
+          <button
+            type="button"
+            className="fixed inset-0 z-30 bg-primary/35 backdrop-blur-[2px] lg:hidden"
+            onClick={() => setIsOpen(false)}
+            aria-label="Cerrar menú"
+          />
+          <nav
+            id="mobile-menu"
+            className="safe-top fixed right-4 top-20 z-40 w-[min(calc(100vw-2rem),22rem)] overflow-hidden rounded-2xl border border-white/20 bg-white shadow-2xl shadow-primary/25 lg:hidden"
+          >
+            <div className="border-b border-card-border bg-primary px-5 py-4 text-white">
+              <p className="font-heading text-base font-semibold">Chandrama Logistic</p>
+              <p className="mt-1 text-xs text-white/75">Navegación rápida</p>
+            </div>
+
+            <ul className="max-h-[calc(100svh-12rem)] overflow-y-auto p-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={handleNavClick}
-                    className="flex min-h-[52px] items-center rounded-xl px-4 text-lg font-medium text-white transition-colors active:bg-white/10"
+                    className="flex min-h-[48px] items-center justify-between rounded-xl px-4 text-sm font-semibold text-primary transition-colors active:bg-surface-muted"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    <ChevronRight size={18} className="text-accent" />
                   </a>
                 </li>
               ))}
             </ul>
-            <a
-              href="#contacto"
-              onClick={handleNavClick}
-              className="mt-6 flex min-h-[52px] items-center justify-center rounded-xl bg-accent px-4 text-lg font-semibold text-white active:bg-accent-hover"
-            >
-              Cotizar ahora
-            </a>
+
+            <div className="border-t border-card-border p-3">
+              <a
+                href="#contacto"
+                onClick={handleNavClick}
+                className="flex min-h-[48px] items-center justify-center rounded-xl bg-accent px-4 text-sm font-semibold text-white shadow-lg shadow-accent/20 active:bg-accent-hover"
+              >
+                Cotizar ahora
+              </a>
+            </div>
           </nav>
-        </div>
+        </>
       )}
     </>
   )
