@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0a2e63;
+  --color-primary-hover: #154c8a;
+  --color-secondary: #1c5c9e;
+  --color-accent: #7cb518;
+  --color-accent-hover: #6ba515;
+  --color-accent-light: #9ad122;
+  --color-surface: #f8fafc;
+  --color-surface-muted: #eef2f6;
+  --color-text-muted: #6b7280;
+  --color-text-dark: #374151;
+  --color-text-heading: #111827;
+  --color-footer: #081f45;
+  --color-footer-text: #d7e3f4;
+  --color-card-border: #e5e7eb;
+  --color-warning: #f59e0b;
+  --color-error: #dc2626;
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-heading);
+    background-color: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 16px;
+  }
+}
+
+@layer utilities {
+  .gradient-corporate {
+    background: linear-gradient(135deg, #0a2e63, #1c5c9e, #7cb518);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      rgba(10, 46, 99, 0.88),
+      rgba(10, 46, 99, 0.72)
+    );
+  }
+
+  .section-padding {
+    @apply py-14 sm:py-20 md:py-28;
+  }
+
+  .container-page {
+    @apply mx-auto max-w-7xl px-4 sm:px-5 md:px-6 lg:px-8;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .card-hover {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card-hover:hover {
+      box-shadow: 0 20px 45px rgba(10, 46, 99, 0.12);
+      transform: translateY(-4px);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease forwards;
+  }
+
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-overlay {
+    background: linear-gradient(
+      rgba(10, 46, 99, 0.92),
+      rgba(10, 46, 99, 0.78)
+    );
+  }
+}
