@@ -40,7 +40,7 @@ export function Contact() {
                 </div>
                 <div className="min-w-0">
                   <h4 className="font-heading text-sm font-semibold text-primary sm:text-base">
-                    Dirección
+                    Oficinas
                   </h4>
                   <p className="mt-1 text-xs text-text-muted sm:text-sm">{company.address}</p>
                 </div>
@@ -89,7 +89,7 @@ export function Contact() {
                 </div>
               </div>
             </div>
-
+            
             <div className="mt-6 overflow-hidden rounded-xl border border-card-border shadow-lg sm:mt-8">
               <iframe
                 title="Ubicación de Chandrama Logistic"
@@ -157,7 +157,7 @@ export function Contact() {
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     className="w-full rounded-lg border border-card-border bg-surface px-4 py-3.5 text-base outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20"
-                    placeholder="+591 73841431"
+                    placeholder="Teléfono de contacto"
                   />
                 </div>
               </div>

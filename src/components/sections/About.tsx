@@ -14,7 +14,9 @@ export function About() {
         <SectionHeading
           label="Nosotros"
           title="Tu aliado estratégico en logística"
-          description="Con más de 15 años de experiencia, conectamos mercados y movemos el mundo con confianza."
+          description="Con experiencia en conectar mercados y mover
+          
+          el mundo con confianza."
         />
 
         <div

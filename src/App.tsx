@@ -10,6 +10,7 @@ import { Process } from './components/sections/Process'
 import { Clients } from './components/sections/Clients'
 import { Testimonials } from './components/sections/Testimonials'
 import { FAQ } from './components/sections/FAQ'
+import { Team } from './components/sections/Team'
 import { Contact } from './components/sections/Contact'
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
         <Coverage />
         <Process />
         <Clients />
-        <Testimonials />
         <FAQ />
+        <Team />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

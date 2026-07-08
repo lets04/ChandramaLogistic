@@ -3,15 +3,14 @@ export const company = {
   tagline: 'Movemos tu carga con seguridad',
   description:
     'Soluciones logísticas integrales con cobertura internacional. Transporte terrestre, marítimo, aéreo, aduanas, almacenaje y distribución.',
-  email: 'info@chandramalogistic.com',
-  phone: '+591 73841431',
+  email: 'chandrama.logisticsrl@gmail.com',
+  phone: '+591 72472346',
   phone2: '+591 71461707',
-  whatsapp: '59173841431',
+  whatsapp: '59172472346',
   whatsappMessage:
     'Hola, me interesa solicitar información sobre sus servicios logísticos.',
-  address: 'Av. Logística 1234, Lima, Perú',
-  mapUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.967789123!2d-77.0428!3d-12.0464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDAyJzQ3LjAiUyA3N8KwMDInMzQuMSJX!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe',
+    mapUrl:'https://www.google.com/maps/place/Cochabamba/@-17.3938783,-66.2464487,12z/data=!4m6!3m5!1s0x93e373e0d9e4ab27:0xa2719ae9532c3e65!8m2!3d-17.3820091!4d-66.1595813!16zL20vMDNrZ2N0?entry=ttu&g_ep=EgoyMDI2MDcwNS4wIKXMDSoASAFQAw%3D%3D',
+  address: 'Oficina principal en Cochabamba y atención operativa en Oruro. Atendemos proyectos en todo el territorio nacional e internacional.',
 }
 
 export const navLinks = [
@@ -19,6 +18,7 @@ export const navLinks = [
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Servicios', href: '#servicios' },
   { label: 'Proceso', href: '#proceso' },
+  { label: 'Equipo', href: '#equipo' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -122,31 +122,41 @@ export const processSteps = [
 ]
 
 export const clients = [
-  'TechCorp', 'GlobalTrade', 'AgroExport', 'MinerPeru',
-  'RetailMax', 'PharmaPlus', 'AutoParts', 'FoodChain',
-]
-
-export const testimonials = [
   {
-    name: 'Carlos Mendoza',
-    role: 'Gerente de Operaciones, TechCorp',
-    text: 'Chandrama Logistic ha transformado nuestra cadena de suministro. Su puntualidad y seguimiento son excepcionales.',
-    rating: 5,
+    name: 'Nueva Occidental',
+    logo: 'src/assets/images/clients/nuevaOccidental.png',
   },
   {
-    name: 'Ana Rodríguez',
-    role: 'Directora Comercial, GlobalTrade',
-    text: 'Confiamos en ellos para nuestras importaciones marítimas. Profesionales, transparentes y siempre disponibles.',
-    rating: 5,
-  },
-  {
-    name: 'Luis Fernández',
-    role: 'CEO, AgroExport',
-    text: 'La cobertura internacional y el manejo aduanero nos permitieron expandirnos a 12 nuevos mercados.',
-    rating: 5,
+    name: 'MACEGERT',
+    logo: 'src/assets/images/clients/macegert.jpg',
   },
 ]
 
+export const testimonials: Array<{ name: string; role: string; text: string; rating: number }> = []
+
+export const teamMembers = [
+  {
+    name: 'Lic. Rosmery Salazar',
+    role: 'Agente Logistico',
+    phone: '+591 72472346',
+    image: '',
+    initials: 'RS',
+  },
+  {
+    name: 'Abogada Sonia Salazar',
+    role: 'Asesor Legal',
+    phone: '+591 71461707',
+    image: '',
+    initials: 'SS',
+  },
+  {
+    name: 'Lic. Marlen Salazar',
+    role: 'Agente Logistico',
+    phone: '+591 71461707',
+    image: '',
+    initials: 'MS',
+  },
+]
 export const faqs = [
   {
     question: '¿Qué tipos de carga transportan?',

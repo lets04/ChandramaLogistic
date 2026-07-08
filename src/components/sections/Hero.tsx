@@ -42,7 +42,7 @@ export function Hero() {
               <ArrowRight size={20} />
             </Button>
 
-            <Button href="#contacto" variant="outline">
+            <Button href="#equipo" variant="outline">
               Contactar asesor
             </Button>
           </div>
