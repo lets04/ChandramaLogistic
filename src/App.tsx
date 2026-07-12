@@ -4,6 +4,7 @@ import { WhatsAppButton } from './components/layout/WhatsAppButton'
 import { Hero } from './components/sections/Hero'
 import { About } from './components/sections/About'
 import { Services } from './components/sections/Services'
+import { StrategicPartner } from './components/sections/StrategicPartner'
 import { WhyChooseUs } from './components/sections/WhyChooseUs'
 import { Coverage } from './components/sections/Coverage'
 import { Process } from './components/sections/Process'
@@ -21,6 +22,7 @@ function App() {
         <Hero />
         <About />
         <Services />
+        <StrategicPartner />
         <WhyChooseUs />
         <Coverage />
         <Process />

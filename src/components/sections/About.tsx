@@ -1,5 +1,5 @@
-import { Target, Eye, Heart, Award } from 'lucide-react'
-import { values } from '../../data/content'
+import { Award, CheckCircle, Eye, Heart, Target } from 'lucide-react'
+import { aboutHistory, values, whatWeDo } from '../../data/content'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { SectionHeading } from '../ui/SectionHeading'
 
@@ -13,10 +13,8 @@ export function About() {
       <div className="container-page">
         <SectionHeading
           label="Nosotros"
-          title="Tu aliado estratégico en logística"
-          description="Con experiencia en conectar mercados y mover
-          
-          el mundo con confianza."
+          title="Tu aliado estratégico en logística y comercio exterior"
+          description="Acompañamos operaciones nacionales e internacionales con soluciones seguras, eficientes y personalizadas."
         />
 
         <div
@@ -39,33 +37,29 @@ export function About() {
             <h3 className="font-heading text-xl font-bold text-primary sm:text-2xl md:text-3xl">
               Nuestra historia
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-text-muted sm:mt-4 sm:text-base">
-              Chandrama Logistic S.R.L. nació con la visión de ofrecer soluciones logísticas
-              integrales que superen las expectativas de nuestros clientes. Desde nuestros inicios,
-              hemos construido una red global de aliados estratégicos que nos permite operar en más
-              de 50 países.
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-text-muted sm:mt-4 sm:text-base">
-              Hoy somos referentes en transporte multimodal, gestión aduanera y distribución,
-              respaldados por un equipo de profesionales comprometidos con la excelencia operativa.
-            </p>
-
-            <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-6">
-              <div className="rounded-xl border border-card-border bg-surface p-4 sm:p-5">
-                <h4 className="font-heading text-sm font-semibold text-primary sm:text-base">Misión</h4>
-                <p className="mt-2 text-xs leading-relaxed text-text-muted sm:text-sm">
-                  Conectar mercados globales con soluciones logísticas seguras, eficientes y
-                  personalizadas.
+            <div className="mt-3 space-y-3 sm:mt-4">
+              {aboutHistory.map((paragraph) => (
+                <p key={paragraph} className="text-sm leading-relaxed text-text-muted sm:text-base">
+                  {paragraph}
                 </p>
-              </div>
-              <div className="rounded-xl border border-card-border bg-surface p-4 sm:p-5">
-                <h4 className="font-heading text-sm font-semibold text-primary sm:text-base">Visión</h4>
-                <p className="mt-2 text-xs leading-relaxed text-text-muted sm:text-sm">
-                  Ser la empresa logística líder en la región, reconocida por innovación y
-                  confianza.
-                </p>
-              </div>
+              ))}
             </div>
+          </div>
+        </div>
+
+        <div
+          className={`mt-10 rounded-xl border border-card-border bg-surface p-5 transition-all duration-700 sm:mt-14 sm:p-6 md:p-8 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+        >
+          <h3 className="font-heading text-xl font-bold text-primary sm:text-2xl">¿Qué hacemos?</h3>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {whatWeDo.map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-lg bg-white p-3">
+                <CheckCircle size={18} className="mt-0.5 shrink-0 text-accent" />
+                <span className="text-sm leading-relaxed text-text-muted">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -9,8 +9,10 @@ export const company = {
   whatsapp: '59172472346',
   whatsappMessage:
     'Hola, me interesa solicitar información sobre sus servicios logísticos.',
-    mapUrl:'https://www.google.com/maps/place/Cochabamba/@-17.3938783,-66.2464487,12z/data=!4m6!3m5!1s0x93e373e0d9e4ab27:0xa2719ae9532c3e65!8m2!3d-17.3820091!4d-66.1595813!16zL20vMDNrZ2N0?entry=ttu&g_ep=EgoyMDI2MDcwNS4wIKXMDSoASAFQAw%3D%3D',
-  address: 'Oficina principal en Cochabamba y atención operativa en Oruro. Atendemos proyectos en todo el territorio nacional e internacional.',
+  mapUrl:
+    'https://maps.google.com/maps?q=Cochabamba,Bolivia&output=embed',
+  address:
+    'Oficina principal en Cochabamba y atención operativa en Oruro. Atendemos en todo el territorio nacional.',
 }
 
 export const navLinks = [
@@ -22,42 +24,113 @@ export const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
+export const aboutHistory = [
+  'En CHANDRAMA LOGISTIC S.R.L. brindamos soluciones integrales en logística y comercio exterior, ofreciendo servicios que abarcan toda la cadena de suministro nacional e internacional. Nuestro compromiso es facilitar el movimiento de mercancías mediante procesos seguros, eficientes y personalizados para cada cliente.',
+  'Contamos con experiencia en la gestión de transporte terrestre, marítimo, aéreo y multimodal, además de servicios especializados de despacho aduanero, consolidación y desconsolidación de carga, coordinación logística y asesoramiento en operaciones de importación y exportación.',
+  'Trabajamos de la mano con aliados estratégicos nacionales e internacionales para garantizar una operación confiable, cumpliendo con la normativa vigente y optimizando cada etapa del proceso logístico. Nuestro objetivo es convertirnos en un socio estratégico para empresas que buscan soluciones eficientes en comercio exterior y distribución de mercancías.',
+]
+
+export const whatWeDo = [
+  'Transporte nacional e internacional.',
+  'Logística integral y multimodal.',
+  'Despacho y gestión aduanera.',
+  'Importaciones y exportaciones.',
+  'Consolidación y desconsolidación de carga.',
+  'Transporte terrestre, marítimo y aéreo.',
+  'Compras internacionales.',
+  'Representación comercial.',
+  'Coordinación logística puerta a puerta.',
+  'Asesoramiento en comercio exterior.',
+]
+
+export const strategicPartner = {
+  title: 'Nuestro aliado en China',
+  description:
+    'Trabajamos directamente con nuestro socio estratégico en China, permitiéndonos gestionar compras internacionales, inspección de mercancías, consolidación de carga y coordinación logística desde origen hasta Bolivia.',
+  label: 'Socio Estratégico',
+  photo: '',
+  logo: '/src/assets/images/strategy/logoChina.png',
+  capabilities: [
+    'Contacto directo',
+    'Negociación con proveedores',
+    'Control de calidad',
+    'Consolidación de mercancía',
+    'Coordinación marítima y aérea',
+  ],
+  reasons: [
+    'Contacto directo en China',
+    'Gestión de proveedores',
+    'Control documental',
+    'Transporte puerta a puerta',
+  ],
+}
+
 export const services = [
   {
     title: 'Transporte Terrestre',
     description:
-      'Flota moderna para carga nacional e internacional con seguimiento GPS en tiempo real y entregas puntuales.',
+      'Transporte nacional e internacional con seguimiento y coordinación operativa de la carga hasta destino.',
     icon: 'truck' as const,
   },
   {
     title: 'Transporte Marítimo',
     description:
-      'Contenedores FCL y LCL hacia cualquier puerto del mundo con gestión documental completa.',
+      'Gestión de contenedores FCL y LCL, coordinación portuaria y documentación para comercio exterior.',
     icon: 'ship' as const,
   },
   {
     title: 'Transporte Aéreo',
     description:
-      'Envíos urgentes y de alto valor con los mejores tiempos de tránsito y máxima seguridad.',
+      'Soluciones para envíos urgentes, carga de alto valor y operaciones que requieren tiempos reducidos.',
     icon: 'plane' as const,
   },
   {
-    title: 'Aduanas',
+    title: 'Despacho Aduanero',
     description:
-      'Despacho aduanero ágil y cumplimiento normativo para importaciones y exportaciones sin contratiempos.',
+      'Asesoramiento y gestión de trámites aduaneros para importaciones y exportaciones.',
     icon: 'fileCheck' as const,
   },
   {
     title: 'Almacenaje',
     description:
-      'Centros de distribución seguros con control de inventario, picking y gestión de stock.',
+      'Apoyo en almacenamiento, control de inventario, consolidación y desconsolidación de mercancías.',
     icon: 'warehouse' as const,
   },
   {
     title: 'Distribución',
     description:
-      'Última milla eficiente con rutas optimizadas y entrega garantizada a destino final.',
+      'Coordinación de distribución nacional, rutas locales y entrega final según la necesidad del cliente.',
     icon: 'package' as const,
+  },
+  {
+    title: 'Comercio Exterior',
+    description:
+      'Importaciones y exportaciones con asesoramiento integral en cada etapa del proceso.',
+    icon: 'globe' as const,
+  },
+  {
+    title: 'Compras Internacionales',
+    description:
+      'Gestión de compras y abastecimiento desde China, Estados Unidos y otros mercados.',
+    icon: 'shoppingCart' as const,
+  },
+  {
+    title: 'Agenciamiento Logístico',
+    description:
+      'Coordinación integral de toda la cadena logística internacional desde origen hasta destino.',
+    icon: 'network' as const,
+  },
+  {
+    title: 'Participación en Licitaciones',
+    description:
+      'Participamos en licitaciones públicas y privadas nacionales e internacionales.',
+    icon: 'clipboardCheck' as const,
+  },
+  {
+    title: 'Representación Comercial',
+    description:
+      'Actuamos como representantes y comisionistas para comprar mercancía por cuenta de terceros.',
+    icon: 'handshake' as const,
   },
 ]
 
@@ -137,50 +210,66 @@ export const testimonials: Array<{ name: string; role: string; text: string; rat
 export const teamMembers = [
   {
     name: 'Lic. Rosmery Salazar',
-    role: 'Agente Logistico',
+    role: 'Agente Logístico',
     phone: '+591 72472346',
-    image: '',
+    image: '../../public/team/logistic.png',
     initials: 'RS',
   },
   {
     name: 'Abogada Sonia Salazar',
     role: 'Asesor Legal',
     phone: '+591 71461707',
-    image: '',
+    image: '../../public/team/abogada.png',
     initials: 'SS',
   },
   {
     name: 'Lic. Marlen Salazar',
-    role: 'Agente Logistico',
+    role: 'Gerente General',
     phone: '+591 71461707',
-    image: '',
+    image: '../../public/team/gerenteGeneral.png',
     initials: 'MS',
   },
 ]
+
 export const faqs = [
   {
     question: '¿Qué tipos de carga transportan?',
     answer:
-      'Transportamos carga general, contenedores, mercancía peligrosa (con certificación), carga refrigerada y proyectos especiales de gran tonelaje.',
+      'Transportamos carga general, contenedores, carga refrigerada, proyectos especiales y operaciones que requieren coordinación terrestre, marítima, aérea o multimodal.',
+  },
+  {
+    question: '¿Importan productos desde China?',
+    answer:
+      'Sí. Contamos con aliados estratégicos en China que nos permiten coordinar compras internacionales, consolidación de mercancías, inspección de productos y transporte hasta Bolivia, brindando un servicio integral para empresas y clientes que desean importar de forma segura.',
+  },
+  {
+    question: '¿Gestionan compras internacionales?',
+    answer:
+      'Sí. Ofrecemos apoyo en la búsqueda de proveedores, cotización, negociación, coordinación de compras y gestión logística internacional, asegurando que la mercancía llegue a destino cumpliendo los requisitos de cada operación.',
+  },
+  {
+    question: '¿Realizan despachos aduaneros?',
+    answer:
+      'Sí. Brindamos servicios de asesoramiento y gestión de trámites aduaneros para procesos de importación y exportación, incluyendo preparación de documentación, clasificación de mercancías y coordinación de las formalidades requeridas para el despacho de carga.',
+  },
+  {
+    question: '¿Ofrecen transporte puerta a puerta?',
+    answer:
+      'Sí. Coordinamos operaciones desde el origen hasta el destino final, integrando transporte internacional, aduanas, consolidación, desconsolidación y distribución según la necesidad del cliente.',
+  },
+  {
+    question: '¿Participan en licitaciones?',
+    answer:
+      'Sí. Podemos participar en licitaciones públicas y privadas, nacionales e internacionales, vinculadas a logística, transporte, comercio exterior, abastecimiento y representación comercial.',
   },
   {
     question: '¿Cuánto tiempo tarda una cotización?',
     answer:
-      'Entregamos cotizaciones en un plazo máximo de 24 horas hábiles después de recibir los detalles de tu envío.',
+      'El tiempo depende del tipo de operación y la información disponible. Cuando contamos con los datos completos del envío, trabajamos para responder con una propuesta clara y oportuna.',
   },
   {
-    question: '¿Ofrecen seguro de carga?',
+    question: '¿Ofrecen asesoramiento en comercio exterior?',
     answer:
-      'Sí, ofrecemos pólizas de seguro de carga adaptadas al valor y tipo de mercancía que transportes.',
-  },
-  {
-    question: '¿Puedo rastrear mi envío en tiempo real?',
-    answer:
-      'Absolutamente. Todos nuestros servicios incluyen seguimiento en tiempo real accesible desde nuestra plataforma o por contacto directo con tu ejecutivo.',
-  },
-  {
-    question: '¿En qué países operan?',
-    answer:
-      'Operamos en más de 50 países a través de nuestra red de aliados estratégicos en América, Europa, Asia y Oceanía.',
+      'Sí. Acompañamos a nuestros clientes en la revisión documental, coordinación con proveedores, requisitos de importación o exportación y planificación logística internacional.',
   },
 ]

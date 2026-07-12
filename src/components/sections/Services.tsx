@@ -1,10 +1,15 @@
 import {
-  Truck,
-  Ship,
-  Plane,
+  ClipboardCheck,
   FileCheck,
-  Warehouse,
+  Globe,
+  Handshake,
+  Network,
   Package,
+  Plane,
+  Ship,
+  ShoppingCart,
+  Truck,
+  Warehouse,
   type LucideIcon,
 } from 'lucide-react'
 import { services } from '../../data/content'
@@ -18,6 +23,11 @@ const iconMap: Record<string, LucideIcon> = {
   fileCheck: FileCheck,
   warehouse: Warehouse,
   package: Package,
+  globe: Globe,
+  shoppingCart: ShoppingCart,
+  network: Network,
+  clipboardCheck: ClipboardCheck,
+  handshake: Handshake,
 }
 
 export function Services() {
@@ -28,8 +38,8 @@ export function Services() {
       <div className="container-page">
         <SectionHeading
           label="Servicios"
-          title="Nuestros Servicios"
-          description="Soluciones logísticas completas para cada necesidad de tu negocio."
+          title="Servicios logísticos y comercio exterior"
+          description="Soluciones integrales para transporte, importación, exportación, abastecimiento y coordinación internacional."
         />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
@@ -42,7 +52,7 @@ export function Services() {
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`}
                 style={{
-                  transitionDelay: isVisible ? `${index * 100}ms` : '0ms',
+                  transitionDelay: isVisible ? `${index * 80}ms` : '0ms',
                   borderTop: '4px solid #7CB518',
                 }}
               >
