@@ -48,7 +48,6 @@ export const strategicPartner = {
   description:
     'Trabajamos directamente con nuestro socio estratégico en China, permitiéndonos gestionar compras internacionales, inspección de mercancías, consolidación de carga y coordinación logística desde origen hasta Bolivia.',
   label: 'Socio Estratégico',
-  photo: '',
   logo: '/src/assets/images/strategy/logoChina.png',
   capabilities: [
     'Contacto directo',

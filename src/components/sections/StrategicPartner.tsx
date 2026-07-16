@@ -53,28 +53,13 @@ export function StrategicPartner() {
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                <div className="flex min-h-40 items-center justify-center rounded-xl border border-white/15 bg-white/10 p-5 text-center">
-                  {strategicPartner.photo ? (
-                    <img
-                      src={strategicPartner.photo}
-                      alt="Socio estratégico en China"
-                      className="h-full max-h-56 w-full rounded-lg object-cover"
-                    />
-                  ) : (
-                    <div>
-                      <p className="font-heading text-lg font-bold">Foto del socio</p>
-                      <p className="mt-2 text-sm text-white/70">Espacio listo para agregar la imagen.</p>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex min-h-32 items-center justify-center rounded-xl border border-white/15 bg-white p-5 text-center text-primary">
+              <div className="flex items-center">
+                <div className="flex min-h-56 w-full items-center justify-center rounded-xl border border-white/15 bg-white p-6 text-center text-primary shadow-lg shadow-black/10 sm:p-8">
                   {strategicPartner.logo ? (
                     <img
                       src={strategicPartner.logo}
                       alt="Logo de la empresa aliada en China"
-                      className="max-h-24 w-auto object-contain"
+                      className="max-h-36 w-auto object-contain"
                     />
                   ) : (
                     <div>
