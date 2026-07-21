@@ -1,3 +1,7 @@
+import logoChina from '../assets/images/logoChina.png'
+import macegertLogo from '../assets/images/macegert.jpg'
+import nuevaOccidentalLogo from '../assets/images/nuevaOccidental.png'
+
 export const company = {
   name: 'Chandrama Logistic S.R.L.',
   tagline: 'Movemos tu carga con seguridad',
@@ -48,7 +52,7 @@ export const strategicPartner = {
   description:
     'Trabajamos directamente con nuestro socio estratégico en China, permitiéndonos gestionar compras internacionales, inspección de mercancías, consolidación de carga y coordinación logística desde origen hasta Bolivia.',
   label: 'Socio Estratégico',
-  logo: '/src/assets/images/logoChina.png',
+  logo: logoChina,
   capabilities: [
     'Contacto directo',
     'Negociación con proveedores',
@@ -166,8 +170,6 @@ export const whyChooseUs = [
 export const coverageStats = [
   { value: '50+', label: 'Países' },
   { value: '200+', label: 'Rutas activas' },
-  { value: '15+', label: 'Años de experiencia' },
-  { value: '1,000+', label: 'Clientes satisfechos' },
 ]
 
 export const processSteps = [
@@ -196,11 +198,11 @@ export const processSteps = [
 export const clients = [
   {
     name: 'Nueva Occidental',
-    logo: 'src/assets/images/nuevaOccidental.png',
+    logo: nuevaOccidentalLogo,
   },
   {
     name: 'MACEGERT',
-    logo: 'src/assets/images/macegert.jpg',
+    logo: macegertLogo,
   },
 ]
 
@@ -211,21 +213,21 @@ export const teamMembers = [
     name: 'Lic. Rosmery Loredo',
     role: 'Jefe de Operaciones',
     phone: '+591 72472346',
-    image: '../../public/team/logistic.png',
+    image: '/team/logistic.png',
     initials: 'RS',
   },
   {
     name: 'Abog. Sonia Galarza',
     role: 'Asesor Legal',
     phone: '+591 72335550',
-    image: '../../public/team/abogada.png',
+    image: '/team/abogada.png',
     initials: 'SS',
   },
   {
     name: 'Lic. Marleni Salazar',
     role: 'Gerente General',
     phone: '+591 71461707',
-    image: '../../public/team/gerenteGeneral.png',
+    image: '/team/gerenteGeneral.png',
     initials: 'MS',
   },
 ]
