@@ -48,7 +48,7 @@ export const strategicPartner = {
   description:
     'Trabajamos directamente con nuestro socio estratégico en China, permitiéndonos gestionar compras internacionales, inspección de mercancías, consolidación de carga y coordinación logística desde origen hasta Bolivia.',
   label: 'Socio Estratégico',
-  logo: '/src/assets/images/strategy/logoChina.png',
+  logo: '/src/assets/images/logoChina.png',
   capabilities: [
     'Contacto directo',
     'Negociación con proveedores',
@@ -196,11 +196,11 @@ export const processSteps = [
 export const clients = [
   {
     name: 'Nueva Occidental',
-    logo: 'src/assets/images/clients/nuevaOccidental.png',
+    logo: 'src/assets/images/nuevaOccidental.png',
   },
   {
     name: 'MACEGERT',
-    logo: 'src/assets/images/clients/macegert.jpg',
+    logo: 'src/assets/images/macegert.jpg',
   },
 ]
 
@@ -208,21 +208,21 @@ export const testimonials: Array<{ name: string; role: string; text: string; rat
 
 export const teamMembers = [
   {
-    name: 'Lic. Rosmery Salazar',
-    role: 'Agente Logístico',
+    name: 'Lic. Rosmery Loredo',
+    role: 'Jefe de Operaciones',
     phone: '+591 72472346',
     image: '../../public/team/logistic.png',
     initials: 'RS',
   },
   {
-    name: 'Abogada Sonia Salazar',
+    name: 'Abog. Sonia Galarza',
     role: 'Asesor Legal',
-    phone: '+591 71461707',
+    phone: '+591 72335550',
     image: '../../public/team/abogada.png',
     initials: 'SS',
   },
   {
-    name: 'Lic. Marlen Salazar',
+    name: 'Lic. Marleni Salazar',
     role: 'Gerente General',
     phone: '+591 71461707',
     image: '../../public/team/gerenteGeneral.png',
