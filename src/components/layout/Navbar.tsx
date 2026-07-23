@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ChevronRight, Menu, X } from 'lucide-react'
+import { ChevronRight, MessageSquarePlus, Menu, X } from 'lucide-react'
 import { navLinks } from '../../data/content'
 import { Logo } from '../ui/Logo'
 
@@ -37,7 +37,7 @@ export function Navbar() {
         <nav className="container-page flex items-center justify-between py-2.5 sm:py-4">
           <Logo />
 
-          <ul className="hidden items-center gap-6 lg:flex lg:gap-8">
+          <ul className="hidden items-center gap-4 lg:flex xl:gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
@@ -48,6 +48,15 @@ export function Navbar() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="#comentarios"
+                className="flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:border-accent hover:text-accent"
+              >
+                <MessageSquarePlus size={17} />
+                <span>Comparte tu experiencia</span>
+              </a>
+            </li>
             <li>
               <a
                 href="#contacto"
@@ -106,6 +115,15 @@ export function Navbar() {
             </ul>
 
             <div className="border-t border-card-border p-3">
+              <a
+                href="#comentarios"
+                onClick={handleNavClick}
+                className="mb-2 flex min-h-[48px] items-center justify-center gap-2 rounded-xl border border-secondary/20 bg-secondary/10 px-4 text-sm font-semibold text-primary active:bg-secondary/15"
+              >
+                <MessageSquarePlus size={18} />
+                Comparte tu experiencia
+              </a>
+
               <a
                 href="#contacto"
                 onClick={handleNavClick}

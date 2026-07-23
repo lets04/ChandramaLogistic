@@ -8,9 +8,9 @@ export const company = {
   description:
     'Soluciones logísticas integrales con cobertura internacional. Transporte terrestre, marítimo, aéreo, aduanas, almacenaje y distribución.',
   email: 'chandrama.logisticsrl@gmail.com',
-  phone: '+591 72472346',
+  phone: '+591 77804969',
   phone2: '+591 71461707',
-  whatsapp: '59172472346',
+  whatsapp: '77804969',
   whatsappMessage:
     'Hola, me interesa solicitar información sobre sus servicios logísticos.',
   mapUrl:
@@ -212,7 +212,7 @@ export const teamMembers = [
   {
     name: 'Lic. Rosmery Loredo',
     role: 'Jefe de Operaciones',
-    phone: '+591 72472346',
+    phone: '+591 77804969',
     image: '/team/logistic.png',
     initials: 'RS',
   },

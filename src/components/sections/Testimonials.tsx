@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { MessageSquarePlus, Send, Star, X } from 'lucide-react'
 import { company, testimonials } from '../../data/content'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
@@ -9,6 +9,18 @@ export function Testimonials() {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [form, setForm] = useState({ name: '', company: '', rating: 5, message: '' })
+
+  useEffect(() => {
+    const openFormFromHash = () => {
+      if (window.location.hash === '#comentarios') {
+        setIsFormOpen(true)
+      }
+    }
+
+    openFormFromHash()
+    window.addEventListener('hashchange', openFormFromHash)
+    return () => window.removeEventListener('hashchange', openFormFromHash)
+  }, [])
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
@@ -23,7 +35,7 @@ export function Testimonials() {
   }
 
   return (
-    <section ref={ref} className="section-padding bg-surface">
+    <section id="comentarios" ref={ref} className="section-padding bg-surface">
       <div className="container-page">
         <SectionHeading
           label="Opiniones"
