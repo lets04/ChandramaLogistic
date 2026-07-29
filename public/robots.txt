@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chandramalogistic.com/sitemap.xml
+Sitemap: https://www.chandramalogistic.com/sitemap.xml
