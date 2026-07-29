@@ -7,7 +7,7 @@ export const company = {
   tagline: 'Movemos tu carga con seguridad',
   description:
     'Soluciones logísticas integrales con cobertura internacional. Transporte terrestre, marítimo, aéreo, aduanas, almacenaje y distribución.',
-  email: 'chandrama.logisticsrl@gmail.com',
+  email: 'contacto@chandramalogistic.com',
   phone: '+591 77804969',
   phone2: '+591 71461707',
   whatsapp: '77804969',
