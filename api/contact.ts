@@ -123,7 +123,8 @@ async function sendBrevoEmail(params: {
   })
 
   if (!response.ok) {
-    throw new Error(`Brevo API error: ${response.status}`)
+    const details = await response.text()
+    throw new Error(`Brevo API error: ${response.status} ${details}`)
   }
 }
 
@@ -327,7 +328,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     return res.status(400).json({ error: 'Tipo de formulario no válido.' })
-  } catch {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+
+    console.error('[api/contact] ERROR:', message)
+
     return res.status(500).json({ error: 'No se pudo enviar el mensaje.' })
   }
 }
