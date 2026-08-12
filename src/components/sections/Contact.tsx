@@ -4,17 +4,39 @@ import { company } from '../../data/content'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { Button, SectionHeading } from '../ui/SectionHeading'
 
+const initialForm = { name: '', email: '', phone: '', message: '', website: '' }
+
 export function Contact() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>()
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
+  const [form, setForm] = useState(initialForm)
+  const [isSending, setIsSending] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`Consulta de ${form.name} - Chandrama Logistic`)
-    const body = encodeURIComponent(
-      `Nombre: ${form.name}\nEmail: ${form.email}\nTeléfono: ${form.phone}\n\nMensaje:\n${form.message}`,
-    )
-    window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`
+    if (isSending) return
+
+    setIsSending(true)
+    setStatus('idle')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'contact', ...form }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Request failed')
+      }
+
+      setForm(initialForm)
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    } finally {
+      setIsSending(false)
+    }
   }
 
   return (
@@ -113,10 +135,21 @@ export function Contact() {
               Envíanos un mensaje
             </h3>
             <p className="mt-2 text-xs text-text-muted sm:text-sm">
-              Completa el formulario y se abrirá tu cliente de correo con el mensaje listo.
+              Completa el formulario y nos pondremos en contacto contigo a la brevedad.
             </p>
 
             <div className="mt-5 space-y-4 sm:mt-6">
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={form.website}
+                onChange={(e) => setForm({ ...form, website: e.target.value })}
+                className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                aria-hidden="true"
+              />
+
               <div>
                 <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-text-dark">
                   Nombre completo
@@ -178,10 +211,22 @@ export function Contact() {
               </div>
             </div>
 
-            <Button type="submit" variant="primary" fullWidth className="mt-5 sm:mt-6">
-              Enviar mensaje
-              <Send size={18} />
+            <Button type="submit" variant="primary" fullWidth className="mt-5 sm:mt-6" disabled={isSending}>
+              {isSending ? 'Enviando...' : 'Enviar mensaje'}
+              {!isSending && <Send size={18} />}
             </Button>
+
+            {status === 'success' && (
+              <p className="mt-4 rounded-lg border border-secondary/20 bg-secondary/10 px-4 py-3 text-sm leading-relaxed text-primary">
+                ¡Solicitud enviada! Te enviaremos una confirmación a tu correo.
+              </p>
+            )}
+
+            {status === 'error' && (
+              <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm leading-relaxed text-red-700">
+                No pudimos enviar tu solicitud. Intenta nuevamente.
+              </p>
+            )}
           </form>
         </div>
       </div>

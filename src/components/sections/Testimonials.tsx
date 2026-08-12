@@ -1,14 +1,18 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { MessageSquarePlus, Send, Star, X } from 'lucide-react'
-import { company, testimonials } from '../../data/content'
+import { testimonials } from '../../data/content'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import { Button, SectionHeading } from '../ui/SectionHeading'
+
+const initialForm = { name: '', company: '', email: '', rating: 5, message: '', website: '' }
 
 export function Testimonials() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>()
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
-  const [form, setForm] = useState({ name: '', company: '', rating: 5, message: '' })
+  const [isSending, setIsSending] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
+  const [form, setForm] = useState(initialForm)
 
   useEffect(() => {
     const openFormFromHash = () => {
@@ -22,16 +26,32 @@ export function Testimonials() {
     return () => window.removeEventListener('hashchange', openFormFromHash)
   }, [])
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    if (isSending) return
 
-    const subject = encodeURIComponent(`Comentario de cliente - ${form.name}`)
-    const body = encodeURIComponent(
-      `Nombre: ${form.name}\nEmpresa: ${form.company || 'No especificada'}\nCalificación: ${form.rating}/5\n\nComentario:\n${form.message}`,
-    )
+    setIsSending(true)
+    setHasSubmitted(false)
+    setSubmitError(false)
 
-    setHasSubmitted(true)
-    window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'comment', ...form }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Request failed')
+      }
+
+      setForm(initialForm)
+      setHasSubmitted(true)
+    } catch {
+      setSubmitError(true)
+    } finally {
+      setIsSending(false)
+    }
   }
 
   return (
@@ -95,7 +115,7 @@ export function Testimonials() {
                       Deja tu comentario
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-text-muted">
-                      Se abrirá tu correo con el mensaje listo para enviarlo a Chandrama Logistic.
+                      Completa el formulario y enviaremos tu comentario a nuestro equipo para revisión.
                     </p>
                   </div>
                   <button
@@ -109,6 +129,17 @@ export function Testimonials() {
                 </div>
 
                 <div className="mt-5 space-y-4">
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={(event) => setForm({ ...form, website: event.target.value })}
+                    className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                    aria-hidden="true"
+                  />
+
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <label htmlFor="testimonial-name" className="mb-1.5 block text-sm font-medium text-text-dark">
@@ -138,6 +169,21 @@ export function Testimonials() {
                         placeholder="Nombre de empresa"
                       />
                     </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="testimonial-email" className="mb-1.5 block text-sm font-medium text-text-dark">
+                      Correo electrónico
+                    </label>
+                    <input
+                      id="testimonial-email"
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(event) => setForm({ ...form, email: event.target.value })}
+                      className="w-full rounded-lg border border-card-border bg-surface px-4 py-3 text-base outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                      placeholder="tu@email.com"
+                    />
                   </div>
 
                   <div>
@@ -178,15 +224,21 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                <Button type="submit" variant="primary" fullWidth className="mt-5">
-                  Enviar comentario
-                  <Send size={18} />
+                <Button type="submit" variant="primary" fullWidth className="mt-5" disabled={isSending}>
+                  {isSending ? 'Enviando...' : 'Enviar comentario'}
+                  {!isSending && <Send size={18} />}
                 </Button>
 
                 {hasSubmitted && (
                   <p className="mt-4 rounded-lg border border-secondary/20 bg-secondary/10 px-4 py-3 text-sm leading-relaxed text-primary">
-                    Gracias por compartir tu experiencia con Chandrama Logistic. Revisaremos tu
-                    comentario antes de publicarlo.
+                    ¡Gracias por compartir tu opinión! Hemos recibido tu comentario y será revisado por
+                    nuestro equipo.
+                  </p>
+                )}
+
+                {submitError && (
+                  <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm leading-relaxed text-red-700">
+                    No pudimos enviar tu comentario. Intenta nuevamente.
                   </p>
                 )}
               </form>
