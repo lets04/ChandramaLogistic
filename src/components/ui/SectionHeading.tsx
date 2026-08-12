@@ -52,6 +52,7 @@ interface ButtonProps {
   type?: 'button' | 'submit'
   className?: string
   fullWidth?: boolean
+  disabled?: boolean
 }
 
 export function Button({
@@ -62,9 +63,10 @@ export function Button({
   type = 'button',
   className = '',
   fullWidth = false,
+  disabled = false,
 }: ButtonProps) {
   const base =
-    'inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-300 active:scale-[0.98] sm:px-6 sm:text-base md:px-8 md:py-3.5'
+    'inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-300 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100 sm:px-6 sm:text-base md:px-8 md:py-3.5'
 
   const variants = {
     primary: 'bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/20',
@@ -85,7 +87,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   )
